@@ -25,3 +25,22 @@ echo 'export PATH="$(yarn global bin):$PATH"' >> ~/.bash_profile
 yarn create react-app hello-react
 ```
 
+## ESLint 적용
+
+- 문법 검사 도구
+
+## Prettier 적용
+
+- Root 디렉터리에서 .prettierrc 라는 파일을 생성하여 커스터마이징 할 수 있다
+
+- ```javascript
+  {
+    "singleQuote": true,
+    "semi": true,
+    "useTabs": false,
+    "tabWidth": 2
+  }
+  ```
+
+- 
+
