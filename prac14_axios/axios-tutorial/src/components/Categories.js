@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const categories = [
   {
@@ -42,7 +43,7 @@ const CategoriesBlock = styled.div`
     overflow-x: auto;
   }
 `;
-const Category = styled.div`
+const Category = styled(NavLink)`
   font-size: 1.125rem;
   cursor: pointer;
   white-space: pre;
@@ -68,14 +69,15 @@ const Category = styled.div`
   }
 `;
 
-const Categories = ({ category, onSelect }) => {
+const Categories = () => {
   return (
     <CategoriesBlock>
       {categories.map(c => (
         <Category
           key={c.name}
-          onClick={_ => onSelect(c.name)}
-          active={c.name === category}
+          activeClassName="active"
+          exact={c.name === 'all'}
+          to={c.name === 'all' ? '/' : `/${c.name}`}
         >
           {c.text}
         </Category>
