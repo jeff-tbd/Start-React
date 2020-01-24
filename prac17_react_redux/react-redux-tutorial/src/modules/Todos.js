@@ -6,7 +6,7 @@ const REMOVE = 'todos/REMOVE';
 
 //액션 생성 함수
 export const changeInput = input => ({ type: CHANGE_INPUT, input });
-let id = 1;
+let id = 3;
 export const insert = text => ({
   type: INSERT,
   todo: {
@@ -46,19 +46,19 @@ function todos(state = initialState, action) {
     case INSERT:
       return {
         ...state,
-        todos: [...todos, action.todo],
+        todos: [...state.todos, action.todo],
       };
     case TOGGLE:
       return {
         ...state,
-        todos: todos.map(todo =>
+        todos: state.todos.map(todo =>
           todo.id === action.id ? { ...todo, done: !todo.done } : todo,
         ),
       };
     case REMOVE:
       return {
         ...state,
-        todos: todos.filter(todo => todo.id !== action.id),
+        todos: state.todos.filter(todo => todo.id !== action.id),
       };
 
     default:
