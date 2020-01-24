@@ -15,7 +15,7 @@ const ColorProvider = ({ children }) => {
 
   const value = {
     state: { color, subcolor },
-    action: { setColor, setSubcolor }
+    actions: { setColor, setSubcolor }
   };
   //Context의 value에 함수를 전달해 줄 수도 있음
   return (
